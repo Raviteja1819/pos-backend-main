@@ -20,17 +20,19 @@ const Users = sequelize.define('Users', {
     type: DataTypes.STRING,
     allowNull: false
   },
+  photo: {
+    type: DataTypes.BLOB,
+    allowNull: true 
+  },
   mobileNumber: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true
   },
-  designation: {
-    type: DataTypes.INTEGER,
-    allowNull: false,
-},
-email: {
-  type: DataTypes.INTEGER,
+  email: {
+    type: DataTypes.STRING,
   allowNull: false,
+  unique: true
 },
 shiftStartsFrom: {
     type: DataTypes.TIME,
@@ -43,9 +45,11 @@ shiftStartsFrom: {
   password: {
     type: DataTypes.STRING,
     allowNull: false,
-  }
-
-
+  },
+  designation: {
+    type: DataTypes.STRING,
+    allowNull: false
+  },
 });
 
 module.exports = Users;
